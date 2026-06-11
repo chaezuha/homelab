@@ -1,9 +1,16 @@
 # Homelab
-
 Personal homelab running 8 self-hosted services in Docker, accessible remotely via [Tailscale](https://tailscale.com/).
 
-## Services
+## Specs
+| Component | Details |
+|-----------|---------|
+| CPU | AMD Ryzen 5 5600X (6c/12t) |
+| GPU | AMD Radeon RX 6500 XT |
+| RAM | 16 GB |
+| Storage | 500 GB SSD |
+| OS | Ubuntu 24.04 LTS |
 
+## Services
 | Service | Description |
 |---------|-------------|
 | [Homepage](https://gethomepage.dev/) | Dashboard for the homelab |
