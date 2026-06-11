@@ -1,14 +1,14 @@
 # Ignore all
 *
-
 # Unignore certain stuff
 !*/
-!.gitignore
+!/.gitignore
 !compose.yaml
 !**/compose.yaml
 !**/compose.*.yaml
-
 # Force block
 .env
 *.env
 secrets/
+data/
+**/data/
