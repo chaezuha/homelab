@@ -1,0 +1,28 @@
+name: deceasedcraft
+services:
+  mc:
+    image: itzg/minecraft-server:java17
+    pull_policy: daily
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      ENFORCE_SECURE_PROFILE: "FALSE"
+      MEMORY: "8G"
+      USE_AIKAR_FLAGS: "true"
+      MAX_TICK_TIME: -1
+      DIFFICULTY: "hard"
+      MOTD: "Fight On!"
+      VIEW_DISTANCE: 10
+      SIMULATION_DISTANCE: 8
+      TYPE: "AUTO_CURSEFORGE"
+      CF_SLUG: "deceasedcraft"
+      CF_API_KEY: "${CF_API_KEY}"
+      MODRINTH_PROJECTS: "chunky"
+      CF_EXTRA_MODS_ALLOW_CURSEFORGE: "true"
+      CURSEFORGE_FILES: "particular-reforged:6916904"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

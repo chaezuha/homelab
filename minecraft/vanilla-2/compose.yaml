@@ -1,0 +1,26 @@
+name: mc-vanilla-2
+
+services:
+  mc:
+    image: itzg/minecraft-server:latest
+    pull_policy: daily
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+      - "19132:19132/udp"
+    environment:
+      EULA: "TRUE"
+      MEMORY: "4G"
+      TYPE: "PAPER"
+      USE_AIKAR_FLAGS: "true"
+      DIFFICULTY: "hard"
+      MOTD: "Sousaphone Gaming"
+      VIEW_DISTANCE: 10
+      SIMULATION_DISTANCE: 8
+      PLUGINS: |
+        https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
+        https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

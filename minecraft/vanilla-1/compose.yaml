@@ -1,0 +1,24 @@
+name: mc-vanilla-1
+
+services:
+  mc:
+    image: itzg/minecraft-server:latest
+    pull_policy: daily
+    tty: true
+    stdin_open: true
+    ports:
+      - "25566:25565"
+    environment:
+      EULA: "TRUE"
+      ENFORCE_SECURE_PROFILE: "FALSE"
+      MEMORY: "4G"
+      TYPE: "PAPER"
+      USE_AIKAR_FLAGS: "true"
+      DIFFICULTY: "hard"
+      MOTD: "Welcome chat"
+      VIEW_DISTANCE: 10
+      SIMULATION_DISTANCE: 8
+      DATAPACKS: "https://cdn.modrinth.com/data/3L2L6sWL/versions/kXofCPYb/terratonic-3.0.18.zip,https://cdn.modrinth.com/data/8oi3bsk5/versions/xDS6ehq8/Terralith_1.21.11_v2.6.0.zip,https://cdn.modrinth.com/data/ZVzW5oNS/versions/rkEubU3f/Incendium_1.21.11_v5.4.11_UNSUPPORTED.zip,https://cdn.modrinth.com/data/LPjGiSO4/versions/6bgYUYfT/Nullscape_1.21.11_v1.2.17.zip"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
