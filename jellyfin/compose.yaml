@@ -15,8 +15,8 @@ services:
       - ./data/media:/media:ro
     restart: 'unless-stopped'
     # Optional - alternative address used for autodiscovery
-    environment:
-      - JELLYFIN_PublishedServerUrl=http://example.com
+    # environment:
+    #   - JELLYFIN_PublishedServerUrl=http://example.com
     # Optional - may be necessary for docker healthcheck to pass if running in host network mode
     extra_hosts:
       - 'host.docker.internal:host-gateway'

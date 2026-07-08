@@ -7,6 +7,8 @@ services:
       - 9.9.9.9
       - 149.112.112.112
     ports:
+      # NOTE: 8080 collides with Nextcloud's app port and 443 with Caddy (host network).
+      # Remap these before re-enabling Pi-hole alongside those stacks.
       # DNS Ports
       - "53:53/tcp"
       - "53:53/udp"
@@ -22,7 +24,7 @@ services:
       # Set the appropriate timezone for your location (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), e.g:
       TZ: 'America/Los_Angeles'
       # Set a password to access the web interface. Not setting one will result in a random password being assigned
-      FTLCONF_webserver_api_password: '1821'
+      FTLCONF_webserver_api_password: '${PIHOLE_PASSWORD}'
       # If using Docker's default `bridge` network setting the dns listening mode should be set to 'ALL'
       FTLCONF_dns_listeningMode: 'ALL'
     # Volumes store your data between container upgrades
