@@ -5,5 +5,5 @@ services:
     image: ghcr.io/playit-cloud/playit-agent:0.17
     network_mode: host
     environment:
-    - SECRET_KEY=${SECRET_KEY}
+      - SECRET_KEY=${SECRET_KEY}
     restart: unless-stopped
