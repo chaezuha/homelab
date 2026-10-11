@@ -18,12 +18,12 @@ services:
     restart: always
 
   cron:
-    image: nextcloud:34-apache
+    image: nextcloud:35-apache
     restart: unless-stopped
     volumes:
       - ./data/nextcloud:/var/www/html
     entrypoint: /cron.sh
-    depends_on: 
+    depends_on:
       - app
 
   caddy:
@@ -33,9 +33,9 @@ services:
     volumes:
       - ./data/Caddyfile:/etc/caddy/Caddyfile
       - ./data/caddy:/data
-  
+
   app:
-    image: nextcloud:34-apache
+    image: nextcloud:35-apache
     restart: always
     ports:
       - "127.0.0.1:8080:80"
