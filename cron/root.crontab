@@ -1,0 +1,2 @@
+30 */6 * * * /usr/bin/rclone sync /home/harley/homelab/nextcloud/data/nextcloud/data/Harley/files filen:/Active --config /home/harley/.config/rclone/rclone.conf --log-file /home/harley/logs/rclone-active.log
+*/5 * * * * docker exec -u www-data nextcloud-app-1 php occ files:scan --all > /dev/null 2>&1

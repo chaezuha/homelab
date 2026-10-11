@@ -1,0 +1,3 @@
+*/5 * * * * curl -s https://link-ip.nextdns.io/<profile>/<key>
+0 */6 * * * /usr/bin/rclone sync filen:/Archive /srv/filen-archive --log-file /home/harley/logs/rclone-sync.log
+45 */6 * * * /usr/bin/rclone sync /home/harley/homelab/syncthing/data/documents filen:/Syncthing --log-file /home/harley/logs/rclone-syncthing.log
