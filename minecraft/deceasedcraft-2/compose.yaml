@@ -1,4 +1,4 @@
-name: deceasedcraft
+name: deceasedcraft-2
 services:
   mc:
     image: itzg/minecraft-server:java17
