@@ -21,3 +21,22 @@ Personal homelab running 8 self-hosted services in Docker, accessible remotely v
 | [playit.gg](https://playit.gg/) | IP tunneling for game servers |
 | [Syncthing](https://syncthing.net/) | Continuous file sync between machines |
 | [Uptime Kuma](https://uptime.kuma.pet/) | Self-hosted uptime monitoring |
+
+## Scheduled jobs
+Cron jobs on the host, mostly [rclone](https://rclone.org/) syncs to [Filen](https://filen.io/) cloud storage. The crontabs live in [`cron/`](cron/).
+
+| Schedule | User | Job |
+|----------|------|-----|
+| Every 5 min | harley | Update the NextDNS linked IP |
+| Every 5 min | root | Nextcloud `occ files:scan --all` |
+| Every 6 h (:00) | harley | Filen `/Archive` → `/srv/filen-archive` (mounted read-only in Nextcloud) |
+| Every 6 h (:30) | root | Nextcloud files → Filen `/Active` |
+| Every 6 h (:45) | harley | Syncthing `documents` → Filen `/Syncthing` |
+
+rclone logs are written to `~/logs/`.
+
+To restore on a new machine:
+```bash
+sudo crontab cron/root.crontab
+crontab cron/harley.crontab
+```
