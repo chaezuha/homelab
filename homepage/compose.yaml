@@ -10,6 +10,4 @@ services:
       - ./config:/app/config # Make sure your local config directory exists
     environment:
       HOMEPAGE_ALLOWED_HOSTS: 10.0.0.12:3000,100.85.192.113:3000 # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
-    depends_on:
-      - dockerproxy
     restart: unless-stopped
